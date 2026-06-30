@@ -66,6 +66,8 @@ void EMachine::setBrand(const char* newBrand){
 void EMachine::setPower(int newPower){
 	if (newPower < 0)
 		throw std::invalid_argument("Invalid");
+	if (isPlugged)
+		throw std::runtime_error("Cant change when plugged in");
 	power = newPower;
 }
 
