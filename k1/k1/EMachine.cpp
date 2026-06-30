@@ -2,7 +2,7 @@
 
 
 EMachine::EMachine(const char* description, const char* brand, int power, bool isPlugged, bool isActive,static int id)
-	:description(nullptr), brand(nullptr), power(power), isPlugged(isPlugged), isActive(isActive), id(cnt++){
+	:description(nullptr), brand(nullptr), power(power), isPlugged(isPlugged), isActive(isActive){ 
 	if (power < 0)
 		throw std::invalid_argument("Invalid");
 	try {
