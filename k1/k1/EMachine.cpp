@@ -66,6 +66,16 @@ bool EMachine::isActiveM() const{
 	return isActive;
 }
 
+void EMachine::turnOn(){
+	if (!isPlugged)
+		throw std::logic_error("Invalid");
+	isActive = true;
+}
+
+void EMachine::turnOff(){
+	isActive = false;
+}
+
 void EMachine::setDescription(const char* newDescription){
 	dynCpy(description, newDescription);
 }
