@@ -1,8 +1,9 @@
 #include "EMachine.h"
 
+int EMachine::nextId = 1;
 
-EMachine::EMachine(const char* description, const char* brand, int power, bool isPlugged, bool isActive,static int id)
-	:description(nullptr), brand(nullptr), power(power), isPlugged(isPlugged), isActive(isActive){ 
+EMachine::EMachine(const char* description, const char* brand, int power)
+	:id(nextId++),description(nullptr), brand(nullptr), power(power), isPlugged(isPlugged), isActive(isActive),pluggedPlace(nullptr){ 
 	if (power < 0)
 		throw std::invalid_argument("Invalid");
 	try {
@@ -17,10 +18,19 @@ EMachine::EMachine(const char* description, const char* brand, int power, bool i
 	}
 }
 
-EMachine::EMachine(const EMachine& other): power(other.power),isActive(other.isActive){
-	setDescription(other.description);
-	setBrand(other.brand);
+EMachine::EMachine(const EMachine& other):id(nextId++),power(other.power),isPlugged(false),isActive(false){
+	try {
+		setDescription(other.description);
+		setBrand(other.brand);
+	}
+	catch (...) {
+		delete[] description;
+		delete[] brand;
+		delete[] pluggedPlace;
+		throw;
+	}
 }
+
 
 EMachine& EMachine::operator=(const EMachine& other){
 	if (this != &other) {
@@ -33,6 +43,7 @@ EMachine& EMachine::operator=(const EMachine& other){
 EMachine::~EMachine(){
 	delete[] description;
 	delete[] brand;
+	delete[] pluggedPlace;
 }
 
 const char* EMachine::getDescripiton() const{
@@ -71,12 +82,40 @@ void EMachine::setPower(int newPower){
 	power = newPower;
 }
 
-void EMachine::setPlugged(bool isP){
-	isPlugged = isP;
+void EMachine::setPlugged(const char* place){
+	dynCpy(pluggedPlace, place);
+	isActive = true;
 }
 
 void EMachine::setActive(bool isA){
-	isActive = isA;
+	if (isA) {
+		turnOn();
+	}
+	else {
+		turnOff();
+	}
+}
+
+void EMachine::print(std::ostream& os) const{
+	os << "Serial number: " << id << '\n';
+	os << "Description: " << description << '\n';
+	os << "Brand: " << brand << '\n';
+	os << "Power: " << power << '\n';
+
+	os << "Plugged in: " << (isPlugged ? "yes" : "no") << '\n';
+
+	if (isPlugged) {
+		os << "Plugged place: " << pluggedPlace << '\n';
+	}
+
+	os << "Turned on: " << (isActive ? "yes" : "no") << '\n';
+}
+
+void EMachine::unplug(){
+	isPlugged = false;
+	isActive = false;
+	delete[] pluggedPlace;
+	pluggedPlace = nullptr;
 }
 
 bool EMachine::saveToFile(const char* filePath, const EMachine& machine){
@@ -148,6 +187,7 @@ void EMachine::Swap(EMachine& other){
 	std::swap(brand, other.brand);
 	std::swap(power, other.power);
 	std::swap(isActive, other.isActive);
+	std::swap(pluggedPlace, other.pluggedPlace);
 }
 
 
