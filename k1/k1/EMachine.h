@@ -25,6 +25,7 @@ public:
 	void setActive(bool isA);
 
 	void print(std::ostream& os) const;
+	void plugIn(const char* place);
 	void unplug();
 
 	bool saveToFile(const char* filePath, const EMachine& machine);

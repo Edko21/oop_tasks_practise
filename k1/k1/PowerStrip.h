@@ -37,4 +37,5 @@ private:
 
 	void free();
 	void copyFrom(const PowerStrip& other);
+	void Swap(PowerStrip& other);
 };

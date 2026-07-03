@@ -121,6 +121,11 @@ void EMachine::print(std::ostream& os) const{
 	os << "Turned on: " << (isActive ? "yes" : "no") << '\n';
 }
 
+void EMachine::plugIn(const char* place){
+	dynCpy(pluggedPlace, place);
+	isActive = true;
+}
+
 void EMachine::unplug(){
 	isPlugged = false;
 	isActive = false;
