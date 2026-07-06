@@ -18,7 +18,7 @@ public:
 	const char* getName() const;
 	Weapon getWeapon() const;
 	bool isDead();
-	void attack(Player& target) const;
+	virtual void attack(Player& target) const;
 
 	void setHealth(int newH);
 	void setWeapon(Weapon newW);
