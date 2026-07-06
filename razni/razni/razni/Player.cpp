@@ -7,18 +7,12 @@ Player::Player(int health, const char* name, Position position, Weapon weapon, i
 		throw std::invalid_argument("Invalid");
 }
 
-Player::Player(const Player& other):health(other.health),position(other.position),weapon(other.weapon),damage(other.damage){
-
+Player::~Player(){
+	
 }
 
-Player& Player::operator=(const Player& other){
-	if (this != &other) {
-		health = other.health;
-		position = other.position;
-		weapon = other.weapon;
-		damage = other.damage;
-	}
-	return *this;
+int Player::power() const{
+	return damage;
 }
 
 int Player::getHealth() const{
@@ -33,8 +27,16 @@ Weapon Player::getWeapon() const{
 	return weapon;
 }
 
-int Player::getDamage() const{
-	return damage;
+bool Player::isDead(){
+	if (health < 0)
+		return true;
+	return false;
+}
+
+void Player::attack(Player& target) const{
+	if (!areNeightboors(position, target.position))
+		return;
+	target.handleAttack(power());
 }
 
 void Player::setHealth(int newH){
@@ -43,41 +45,23 @@ void Player::setHealth(int newH){
 	health = newH;
 }
 
-void Player::setWeapon(Weapon newW){
-	switch (newW) {
-	case Weapon::Sword:std::cout << "Sword";
-	case Weapon::Wand:std::cout << "Wand";
-	case Weapon::Staff:std::cout << "Staff";
-	case Weapon::Axe:std::cout << "Axe";
-	default:Weapon::UNKNOWN;
-	}
-}
-
 void Player::setDamage(int newD){
 	if (newD < 0)
 		throw std::invalid_argument("Invalid");
 	damage = newD;
 }
 
-void Player::handleAttack(int damage, int health, int position)
-{
+void Player::handleAttack(int power){
+	reduceHealth(power);
 }
 
-void Player::Swap(Player& other){
-	std::swap(health, other.health);
-	std::swap(name, other.name);
-	std::swap(weapon, other.weapon);
-	std::swap(damage, other.damage);
+
+void Player::reduceHealth(int amount){
+	if (amount <= 0)
+		throw std::invalid_argument("Invalud");
+	if (amount >= health)
+		health = 0;
+	else
+		health -= amount;
 }
-
-void Player::moveFrom(Player&& other){
-	health = other.health;
-	position = other.position;
-	weapon = other.weapon;
-	damage = other.damage;
-
-	name = other.name;
-	other.name = nullptr;
-}
-
 
