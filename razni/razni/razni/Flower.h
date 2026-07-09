@@ -10,7 +10,7 @@ public:
 	~Flower() override;
 
 	Plant* clone() const override;
-	void getDescription() override;
+	char* getDescription() const override;
 private:
 	bool bloomingMonths[12];
 	static const bool getBloomingM(int month);

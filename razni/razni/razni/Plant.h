@@ -26,7 +26,7 @@ public:
 	void setHeight(int newHeight);
 
 	virtual Plant* clone() const = 0;
-	virtual void getDescription() = 0;
+	virtual char* getDescription() const = 0;
 private:
 	char* vid;
 	char* sort;
