@@ -2,27 +2,29 @@
 .vs/
 **/.vs/
 
-# Build folders
+# Build directories
 **/x64/
 **/Debug/
 **/Release/
 
-# User-specific project files
+# Compiled and temporary files
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.idb
+*.pch
+*.tlog
+*.log
+*.lastbuildstate
+
+# User-specific Visual Studio files
 *.user
 *.vcxproj.user
 *.suo
-
-# Visual Studio databases
 *.VC.db
 *.VC.db-shm
 *.VC.db-wal
 *.VC.opendb
 *.sqlite
 *.slnx.sqlite
-
-# Compiled files
-*.obj
-*.exe
-*.pdb
-*.ilk
-*.log
