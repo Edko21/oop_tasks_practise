@@ -34,6 +34,8 @@ const char* Truc::getDescription() const{
 }
 
 void Truc::setLoad(double newLoad){
+	if (newLoad < 0)
+		throw std::invalid_argument("Invalid");
 	load = newLoad;
 }
 
