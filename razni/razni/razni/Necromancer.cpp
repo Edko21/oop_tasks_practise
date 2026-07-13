@@ -26,6 +26,10 @@ Necromancer::~Necromancer(){
     free();
 }
 
+void Necromancer::attack(Player& target) const{ 
+
+}
+
 int Necromancer::getCount() const{
     return defeatedCount;
 }
