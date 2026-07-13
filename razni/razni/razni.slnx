@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="razni/razni.vcxproj" Id="59041419-df62-469b-b02e-7c6361906776" />
+</Solution>

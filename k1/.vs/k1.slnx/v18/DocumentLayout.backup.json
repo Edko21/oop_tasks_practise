@@ -1,0 +1,112 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\k1\\k1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|D:\\k1\\k1\\k1\\PowerStrip.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|solutionrelative:k1\\PowerStrip.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|D:\\k1\\k1\\k1\\EMachine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|solutionrelative:k1\\EMachine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|D:\\k1\\k1\\k1\\PowerStrip.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|solutionrelative:k1\\PowerStrip.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|D:\\k1\\k1\\k1\\EMachine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|solutionrelative:k1\\EMachine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|D:\\k1\\k1\\k1\\k1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9B48B826-8292-49CE-AB10-97B326D2A20F}|k1\\k1.vcxproj|solutionrelative:k1\\k1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PowerStrip.cpp",
+              "DocumentMoniker": "D:\\k1\\k1\\k1\\PowerStrip.cpp",
+              "RelativeDocumentMoniker": "k1\\PowerStrip.cpp",
+              "ToolTip": "D:\\k1\\k1\\k1\\PowerStrip.cpp",
+              "RelativeToolTip": "k1\\PowerStrip.cpp",
+              "ViewState": "AgIAADoAAAAAAAAAAAAuwLYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-03T08:27:54.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PowerStrip.h",
+              "DocumentMoniker": "D:\\k1\\k1\\k1\\PowerStrip.h",
+              "RelativeDocumentMoniker": "k1\\PowerStrip.h",
+              "ToolTip": "D:\\k1\\k1\\k1\\PowerStrip.h",
+              "RelativeToolTip": "k1\\PowerStrip.h",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAACYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-30T10:47:02.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EMachine.h",
+              "DocumentMoniker": "D:\\k1\\k1\\k1\\EMachine.h",
+              "RelativeDocumentMoniker": "k1\\EMachine.h",
+              "ToolTip": "D:\\k1\\k1\\k1\\EMachine.h",
+              "RelativeToolTip": "k1\\EMachine.h",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAewCkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-30T09:02:52.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EMachine.cpp",
+              "DocumentMoniker": "D:\\k1\\k1\\k1\\EMachine.cpp",
+              "RelativeDocumentMoniker": "k1\\EMachine.cpp",
+              "ToolTip": "D:\\k1\\k1\\k1\\EMachine.cpp",
+              "RelativeToolTip": "k1\\EMachine.cpp",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAewH0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-30T09:55:18.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "k1.cpp",
+              "DocumentMoniker": "D:\\k1\\k1\\k1\\k1.cpp",
+              "RelativeDocumentMoniker": "k1\\k1.cpp",
+              "ToolTip": "D:\\k1\\k1\\k1\\k1.cpp",
+              "RelativeToolTip": "k1\\k1.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-30T08:57:05.444Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

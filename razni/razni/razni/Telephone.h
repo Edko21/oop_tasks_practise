@@ -8,6 +8,7 @@ public:
 	Telephone(const Telephone& other);
 	Telephone& operator=(const Telephone& other);
 	virtual ~Telephone();
+	virtual Telephone* clone() const = 0;
 	virtual double getPrice() const = 0;
 
 	const char* getModel() const;
