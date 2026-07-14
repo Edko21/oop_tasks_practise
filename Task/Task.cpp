@@ -33,5 +33,9 @@ Status Task::getStatus() const{
 	return status;
 }
 
+void Task::setTaskName(const char* newTaskName){
+	dynCpy(taskName, newTaskName);
+}
+
 
 
