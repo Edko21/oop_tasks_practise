@@ -13,8 +13,8 @@ ComputingCentre::ComputingCentre(const ComputingCentre& other):devices(nullptr),
 
 ComputingCentre& ComputingCentre::operator=(const ComputingCentre& other){
 	if (this != &other) {
-		free();
-		copyFrom(other);
+		ComputingCentre temp(other);
+		Swap(temp);
 	}
 	return *this;
 }
