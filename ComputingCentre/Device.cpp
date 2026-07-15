@@ -17,20 +17,7 @@ Device::Device(const char* brand, const char* model, double frequency, Type t):b
 	}
 }
 
-Device::Device(const Device& other):brand(nullptr),model(nullptr),frequency(other.frequency),t(other.t){
-	try {
-		setBrand(other.brand);
-		setModel(other.model);
-	}
-	catch (...) {
-		delete[] brand;
-		delete[] model;
-		brand = nullptr;
-		model = nullptr;
-
-		throw;
-	}
-}
+Device::Device(const Device& other):Device(other.brand,other.model,other.frequency,other.t){}
 
 Device& Device::operator=(const Device& other){
 	if (this != &other) {
@@ -53,8 +40,8 @@ Device& Device::operator=(const Device& other){
 		}
 		delete[] brand;
 		delete[] model;
-		brand = nullptr;
-		model = nullptr;
+		brand = newBrand;
+		model = newModel;
 		frequency = other.frequency;
 	}
 	return *this;
@@ -95,4 +82,10 @@ void Device::setFrequency(double newFrequency){
 	if (newFrequency < 0)
 		throw std::invalid_argument("Invalid");
 	frequency = newFrequency;
+}
+
+void Device::Swap(Device& other) {
+	std::swap(brand, other.brand);
+	std::swap(model, other.model);
+	std::swap(frequency, other.frequency);
 }

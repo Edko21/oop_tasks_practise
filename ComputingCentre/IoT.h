@@ -13,7 +13,8 @@ public:
 
 	Device* clone() const override;
 	unsigned int compute(const std::uint8_t* program, size_t size) const override;
+protected:
+	void Swap(Iot& other);
 private:
 	char* sensors;
-	void Swap(Iot& other);
 };
