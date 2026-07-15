@@ -14,24 +14,7 @@ Vehicle::Vehicle(const char* brand, const char* model, const char* regNum):brand
 	}
 }
 
-Vehicle::Vehicle(const Vehicle& other):brand(nullptr),model(nullptr),regNum(nullptr){
-	try {
-		setBrand(other.brand);
-		setModel(other.model);
-		setRegNum(other.regNum);
-	}
-	catch (...) {
-		delete[] brand;
-		delete[] model;
-		delete[] regNum;
-
-		brand = nullptr;
-		model = nullptr;
-		regNum = nullptr;
-
-		throw;
-	}
-}
+Vehicle::Vehicle(const Vehicle& other):Vehicle(other.brand,other.model,other.regNum){}
 
 Vehicle& Vehicle::operator=(const Vehicle& other){
 	if (this != &other) {
@@ -58,9 +41,9 @@ Vehicle& Vehicle::operator=(const Vehicle& other){
 		delete[] model;
 		delete[] regNum;
 
-		brand = nullptr;
-		model = nullptr;
-		regNum = nullptr;
+		brand = newBrand;
+		model = newModel;
+		regNum = newRegNum;
 	}
 	return *this;
 }
@@ -109,3 +92,8 @@ bool Vehicle::isValidRegNum(const char* regNum){
 		isdigit(regNum[4]) && isdigit(regNum[5]) && isupper(regNum[6]) && isupper(regNum[7]);
 }
 
+void Vehicle::Swap(Vehicle& other) {
+	std::swap(brand, other.brand);
+	std::swap(model, other.model);
+	std::swap(regNum, other.regNum);
+}
