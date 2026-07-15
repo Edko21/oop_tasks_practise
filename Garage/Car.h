@@ -15,9 +15,9 @@ public:
 
 	double getTax() const override;
 	Vehicle* clone() const override;
-
+protected:
+	void Swap(Car& other);
 private:
 	char* engine;
 	int hp;
-	void Swap(Car& other);
 };

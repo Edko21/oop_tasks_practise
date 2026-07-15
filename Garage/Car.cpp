@@ -12,7 +12,6 @@ Car::Car(const Car& other):Vehicle(other),engine(nullptr),hp(other.hp){
 
 Car& Car::operator=(const Car& other){
 	if (this != &other) {
-		Vehicle::operator=(other);
 		Car temp(other);
 		Swap(temp);
 	}
@@ -51,6 +50,7 @@ Vehicle* Car::clone() const{
 }
 
 void Car::Swap(Car& other){
+	Vehicle::Swap(other);
 	std::swap(engine, other.engine);
 	std::swap(hp, other.hp);
 }

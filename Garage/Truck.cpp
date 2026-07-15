@@ -12,7 +12,6 @@ Truck::Truck(const Truck& other):Vehicle(other),load(other.load),description(nul
 
 Truck& Truck::operator=(const Truck& other){
 	if (this != &other) {
-		Vehicle::operator=(other);
 		Truck temp(other);
 		Swap(temp);
 	}
@@ -51,6 +50,7 @@ Vehicle* Truck::clone() const{
 }
 
 void Truck::Swap(Truck& other){
+	Vehicle::Swap(other);
 	std::swap(load, other.load);
 	std::swap(description, other.description);
 }

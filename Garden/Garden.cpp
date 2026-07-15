@@ -1,4 +1,4 @@
-#include "Gargen.h"
+#include "Garden.h"
 
 void Garden::free(){
 	for (int i = 0;i < size;i++)
@@ -11,20 +11,24 @@ void Garden::free(){
 }
 
 void Garden::copyFrom(const Garden& other){
-	size = other.size;
-	cap = other.cap;
-
-	plants = new Plant * [cap] {};
+	
+	plants = new Plant * [other.cap] {};
+	int i = 0;
 	try{
-		for (int i = 0;i < size;i++) {
+		for (;i <other.size;i++) {
 			plants[i] = other.plants[i]->clone();
 		}
 	}
 	catch (...) {
-		free();
+		for (int j = 0;j < i;j++) {
+			delete plants[j];
+		}
+		delete plants[];
 		throw;
 	}
-	
+	size = other.size;
+	cap = other.cap;
+
 }
 
 void Garden::Swap(Garden& other){
@@ -33,10 +37,14 @@ void Garden::Swap(Garden& other){
 	std::swap(cap, other.cap);
 }
 
-Garden::Garden(int cap):plants(nullptr),size(0),cap(0){
+Garden::Garden(int cap):plants(nullptr),size(size),cap(cap){
 	if (cap < 0)
 		throw std::invalid_argument("Invalid");
+
 	plants = new Plant * [cap] {};
+	for (int i = 0;i < size;i++) {
+		plants[i] = nullptr;
+	}
 }
 
 Garden::Garden(const Garden& other){
@@ -73,6 +81,9 @@ bool Garden::addPlant(const Plant& plant){
 }
 
 bool Garden::eradicate(const char* vid){
+	if (vid == nullptr)
+		return false;
+
 	bool removed = false;
 	for (int i = 0;i < size;i++) {
 		if (strcmp(plants[i]->getVid(), vid) == 0) {

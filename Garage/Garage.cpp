@@ -5,15 +5,29 @@ void Garage::free(){
 		delete vehicles[i];
 	delete[] vehicles;
 	vehicles = nullptr;
+	size = 0;
+	cap = 0;
 }
 
 void Garage::copyFrom(const Garage& other){
+	vehicles = new Vehicle * [other.cap] {};
+
+	size_t i = 0;
+	try {
+		for (;i < other.size;i++) {
+			vehicles[i] = other.vehicles[i]->clone();
+		}
+	}
+	catch (...) {
+		for (size_t j = 0;j < i;j++)
+			delete vehicles[j];
+		delete[] vehicles;
+		vehicles = nullptr;
+
+		throw;
+	}
 	size = other.size;
 	cap = other.cap;
-
-	for (int i = 0;i < size;i++) {
-		vehicles[i] = other.vehicles[i]->clone();
-	}
 }
 
 Garage::Garage(size_t cap):vehicles(nullptr), size(size),cap(cap){
@@ -64,6 +78,9 @@ bool Garage::addV(const Vehicle& v){
 }
 
 bool Garage::removeBy(const char* brand, const char* model){
+	if (brand == nullptr || model == nullptr)
+		return false;
+
 	for (int i = 0;i < size;) {
 		if (strcmp(vehicles[i]->getBrand(), brand) == 0 && strcmp(vehicles[i]->getModel(), model) == 0) {
 

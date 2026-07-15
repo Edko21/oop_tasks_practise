@@ -27,9 +27,11 @@ public:
 
 	virtual Plant* clone() const = 0;
 	virtual char* getDescription() const = 0;
+protected:
+	void Swap(Plant& other);
 private:
 	char* vid;
 	char* sort;
 	int height;
-	Type type;
+	const Type type;
 };

@@ -21,6 +21,9 @@ public:
 
 	virtual double getTax() const = 0;
 	virtual Vehicle* clone() const = 0;
+
+protected:
+	void Swap(Vehicle& other);
 private:
 	char* brand;
 	char* model;
