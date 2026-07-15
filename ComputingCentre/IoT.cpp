@@ -1,6 +1,7 @@
 #include "IoT.h"
 
 Iot::Iot(const char* brand, const char* model, double frequency, Type t, const char* sensors):Device(brand,model,frequency,t),sensors(nullptr){
+
 	setSensors(sensors);
 }
 
@@ -11,7 +12,6 @@ Iot::Iot(const Iot& other) :Device(other),sensors(nullptr){
 Iot& Iot::operator=(const Iot& other){
 	if (this != &other) {
         Iot temp(other);
-        Device::operator=(other);
 		Swap(temp);
 	}
 	return *this;

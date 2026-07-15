@@ -28,6 +28,8 @@ public:
 
 	virtual Device* clone() const = 0;
 	virtual unsigned int compute(const std::uint8_t* program, size_t size) const = 0;
+protected:
+	void Swap(Device& other);
 
 private:
 	char* brand;

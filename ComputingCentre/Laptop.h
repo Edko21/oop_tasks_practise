@@ -1,7 +1,6 @@
 #pragma once
 #include "Device.h"
 
-
 class Laptop :public Device {
 public:
 	Laptop(const char* brand, const char* model, size_t frequency,Type t, size_t ram, size_t hdd);
