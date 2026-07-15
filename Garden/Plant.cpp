@@ -14,17 +14,7 @@ Plant::Plant(const char* vid, const char* sort, int height,Type type):vid(nullpt
 	}
 }
 
-Plant::Plant(const Plant& other):vid(nullptr),sort(nullptr),height(other.height){
-	try {
-		setVid(other.vid);
-		setSort(other.sort);
-	}
-	catch (...) {
-		delete[] vid;
-		delete[] sort;
-		throw;
-	}
-}
+Plant::Plant(const Plant& other):Plant(other.vid,other.sort,other.height,other.type){}
 
 Plant& Plant::operator=(const Plant& other){
 	if (this != &other) {
@@ -44,8 +34,10 @@ Plant& Plant::operator=(const Plant& other){
 		}
 		delete[] vid;
 		delete[] sort;
-		vid = nullptr;
-		sort = nullptr;
+		vid = newVid;
+		sort = newSort;
+
+		height = other.height;
 	}
 	return *this;
 }
@@ -53,8 +45,6 @@ Plant& Plant::operator=(const Plant& other){
 Plant::~Plant(){
 	delete[] vid;
 	delete[] sort;
-	vid = nullptr;
-	sort = nullptr;
 }
 
 const char* Plant::getVid() const{
@@ -85,5 +75,11 @@ void Plant::setHeight(int newHeight){
 	if(newHeight<0)
 		throw std::invalid_argument("Invalid");
 	height = newHeight;
+}
+
+void Plant::Swap(Plant& other){
+	std::swap(vid, other.vid);
+	std::swap(sort, other.sort);
+	std::swap(height, other.height);
 }
 
