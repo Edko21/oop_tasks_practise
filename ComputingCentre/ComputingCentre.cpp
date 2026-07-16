@@ -13,8 +13,8 @@ ComputingCentre::ComputingCentre(const ComputingCentre& other):devices(nullptr),
 
 ComputingCentre& ComputingCentre::operator=(const ComputingCentre& other){
 	if (this != &other) {
-		free();
-		copyFrom(other);
+		ComputingCentre temp(other);
+		Swap(temp);
 	}
 	return *this;
 }
@@ -52,7 +52,7 @@ bool ComputingCentre::removeBy(const char* brand){
 			i++;
 		}
 	}
-	return true;
+	return removed;
 }
 
 void ComputingCentre::compute(const std::uint8_t* program, std::size_t size) const{
@@ -87,7 +87,10 @@ void ComputingCentre::copyFrom(const ComputingCentre& other) {
 		}
 	}
 	catch (...) {
-		free();
+		for (int j = i;j < i;j++)
+			delete devices[j];
+		delete[] devices;
+
 		throw;
 	}
 }

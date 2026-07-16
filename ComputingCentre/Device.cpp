@@ -50,8 +50,6 @@ Device& Device::operator=(const Device& other){
 Device::~Device(){
 	delete[] brand;
 	delete[] model;
-	brand = nullptr;
-	model = nullptr;
 }
 
 const char* Device::getBrand() const{
