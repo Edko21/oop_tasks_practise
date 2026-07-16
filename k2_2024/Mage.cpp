@@ -36,6 +36,7 @@ void Mage::setSkill(const char* newSkill){
 }
 
 void Mage::print() const{
+	Player::print();
 	std::cout << "MagicSkill" << getSkill() << "Coef" << getCoef() << std::endl;
 }
 
