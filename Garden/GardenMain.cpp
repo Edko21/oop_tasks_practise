@@ -74,7 +74,7 @@ int main() {
             std::cout << "No found.\n";
         } 
 
-        std::cout << "Plants after eradicate:\n";
+        std::cout << "Plants eradicate:\n";
         garden.info();
 
         std::cout << "Size: "

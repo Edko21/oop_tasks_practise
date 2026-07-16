@@ -52,7 +52,7 @@ bool ComputingCentre::removeBy(const char* brand){
 			i++;
 		}
 	}
-	return true;
+	return removed;
 }
 
 void ComputingCentre::compute(const std::uint8_t* program, std::size_t size) const{
@@ -87,7 +87,10 @@ void ComputingCentre::copyFrom(const ComputingCentre& other) {
 		}
 	}
 	catch (...) {
-		free();
+		for (int j = i;j < i;j++)
+			delete devices[j];
+		delete[] devices;
+
 		throw;
 	}
 }
