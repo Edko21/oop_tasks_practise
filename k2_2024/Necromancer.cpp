@@ -34,6 +34,11 @@ int Necromancer::getCount() const{
     return defeatedCount;
 }
 
+void Necromancer::print() const{
+    Mage::print();
+    std::cout << "Defeated count" << getCount() << std::endl;
+}
+
 Player* Necromancer::clone() const{
     return new Necromancer(*this);
 }

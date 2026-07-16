@@ -7,8 +7,36 @@ Player::Player(int health, const char* name, Position position, Weapon weapon, i
 		throw std::invalid_argument("Invalid");
 }
 
+Player::Player(const Player& other):Player(other.health,other.name,other.position,other,weapon,other.damage){}
+
+Player& Player::operator=(const Player& other)
+{
+	if (this != &other) {
+		char* newName = nullptr;
+		try {
+			newName = new char[strlen(other.name) + 1];
+			strcpy(newName, other.name);
+		}
+		catch (...) {
+			delete[] newName;
+			throw;
+		}
+		delete[] name;
+		name = newName;
+		health = other.health;
+		position = other.position;
+		weapon = other.weapon;
+		damage = other.damage;
+	}
+	return *this;
+}
+
 Player::~Player(){
-	
+	delete[] name;
+}
+
+void Player::print() const{
+	std::cout << "Health" << getHealth() << "Name" << getName() << "Position" << getPosition() << "Weapon" << getWeapon() << "Damage" << getDamage() << std::endl;
 }
 
 int Player::power() const{
@@ -21,6 +49,10 @@ int Player::getHealth() const{
 
 const char* Player::getName() const{
 	return name;
+}
+
+Position Player::getPosition() const{
+	return position;
 }
 
 Weapon Player::getWeapon() const{

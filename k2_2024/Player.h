@@ -6,9 +6,11 @@
 class Player {
 public:
 	Player(int health, const char* name, Position position, Weapon weapon, int damage);
+	Player(const Player& other);
+	Player& operator=(const Player& other);
 	virtual ~Player();
 
-	virtual void print() const = 0;
+	virtual void print() const;
 	virtual Player* clone() const = 0;
 
 	virtual int power() const;
@@ -16,6 +18,7 @@ public:
 
 	int getHealth() const;
 	const char* getName() const;
+	Position getPosition() const;
 	Weapon getWeapon() const;
 	bool isDead();
 	virtual void attack(Player& target) const;
