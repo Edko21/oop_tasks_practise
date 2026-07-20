@@ -2,6 +2,10 @@
 
 Task::Task(const char* name, const char* description, unsigned int duration, bool isRepeating, Date deadline):Event(name,description,duration,isRepeating),deadline(deadline){}
 
+Event* Task::clone() const{
+	return new Task(*this);
+}
+
 Date Task::getDeadline() const{
 	return deadline;
 }

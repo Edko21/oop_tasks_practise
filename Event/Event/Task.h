@@ -8,6 +8,8 @@ public:
 	Task& operator=(const Task& other) = default;
 	~Task() override = default;
 
+	Event* clone() const override;
+
 	Date getDeadline() const;
 	void setDeadline(Date newD);
 private:
