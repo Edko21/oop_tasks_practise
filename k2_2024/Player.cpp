@@ -5,12 +5,12 @@ Player::Player(int health, const char* name, Position position, Weapon weapon, i
 		throw std::invalid_argument("Invalid");
 	if (damage < 0)
 		throw std::invalid_argument("Invalid");
+	setName(name);
 }
 
-Player::Player(const Player& other):Player(other.health,other.name,other.position,other,weapon,other.damage){}
+Player::Player(const Player& other):Player(other.health,other.name,other.position,other.weapon,other.damage){}
 
-Player& Player::operator=(const Player& other)
-{
+Player& Player::operator=(const Player& other){
 	if (this != &other) {
 		char* newName = nullptr;
 		try {
@@ -23,6 +23,7 @@ Player& Player::operator=(const Player& other)
 		}
 		delete[] name;
 		name = newName;
+
 		health = other.health;
 		position = other.position;
 		weapon = other.weapon;
@@ -59,13 +60,11 @@ Weapon Player::getWeapon() const{
 	return weapon;
 }
 
-bool Player::isDead(){
-	if (health < 0)
-		return true;
-	return false;
+bool Player::isDead() const {
+	return health==0;
 }
 
-void Player::attack(Player& target) const{
+void Player::attack(Player& target) {
 	if (!areNeightboors(position, target.position))
 		return;
 	target.handleAttack(power());
@@ -77,8 +76,12 @@ void Player::setHealth(int newH){
 	health = newH;
 }
 
+void Player::setName(const char* newName){
+	dynCpy(name, newName);
+}
+
 void Player::setDamage(int newD){
-	if (newD < 0)
+	if (newD <= 0)
 		throw std::invalid_argument("Invalid");
 	damage = newD;
 }
@@ -95,5 +98,13 @@ void Player::reduceHealth(int amount){
 		health = 0;
 	else
 		health -= amount;
+}
+
+void Player::Swap(Player& other){
+	std::swap(health, other.health);
+	std::swap(name, other.name);
+	std::swap(position, other.position);
+	std::swap(weapon, other.weapon);
+	std::swap(damage, other.damage);
 }
 

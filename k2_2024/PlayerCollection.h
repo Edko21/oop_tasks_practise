@@ -4,6 +4,8 @@
 class PlayerCollection {
 public:
 	PlayerCollection(size_t cap);
+	PlayerCollection(const PlayerCollection& other);
+	PlayerCollection& operator=(const PlayerCollection& other);
 	~PlayerCollection();
 
 	bool addPlayer(const Player& player);

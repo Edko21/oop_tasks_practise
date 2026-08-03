@@ -1,6 +1,7 @@
 #include "Necromancer.h"
 
-Necromancer::Necromancer(int health, const char* name, Position p, int damage, const char* magicSkill, int coef){
+Necromancer::Necromancer(int health, const char* name, Position p, int damage, const char* magicSkill, int coef)
+    :Mage(health, name, p, damage, magicSkill, coef),defeated{},defeatedCount(0){
     for (int i = 0;i < MAX_DEFEATED;i++) {
         defeated[i] = nullptr;
     }
@@ -26,7 +27,22 @@ Necromancer::~Necromancer(){
     free();
 }
 
-void Necromancer::attack(Player& target) const{ 
+void Necromancer::attack(Player& target){ 
+    if (target.isDead())
+        return;
+
+    Position currPos = getPosition();
+    Position targetPos = target.getPosition();
+
+    if (std::abs(currPos.x - targetPos.x) != 1 || std::abs(currPos.y - targetPos.y) != 1)
+        return;
+    Mage::attack(target);
+
+    if (!target.isDead() && defeatedCount > 0) {
+        size_t randomInd = std::rand() % defeatedCount;
+        int additionalPower = defeated[randomInd]->power();
+        target.handleAttack(additionalPower);
+    }
 
 }
 
@@ -52,12 +68,14 @@ void Necromancer::free(){
 }
 
 void Necromancer::copyFrom(const Necromancer& other){
-    for (int i = 0;i < defeatedCount;i++) {
+    Player* defeated[MAX_DEFEATED]{};
+    for (int i = 0;i < other.defeatedCount;i++) {
         defeated[i] = other.defeated[i]->clone();
     }
     for (int i = 0;i < MAX_DEFEATED;i++) {
-        defeated[i] = nullptr;
+        delete defeated[i];
     }
+    delete[] defeated;
 }
 
 void Necromancer::addDefeated(const Player& player){
