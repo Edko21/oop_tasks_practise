@@ -6,7 +6,7 @@ Mage::Mage(int health, const char* name,Position p,int damage, const char* magic
 	setSkill(magicSkill);
 }
 
-Mage::Mage(const Mage& other):Player(other),coef(other.coef){
+Mage::Mage(const Mage& other):Player(other),magicSkill(nullptr),coef(other.coef){
 	setSkill(other.magicSkill);
 }
 
@@ -44,18 +44,15 @@ Player* Mage::clone() const{
 	return new Mage(*this);
 }
 
-void Mage::handleAttack(int power){
-	Player::handleAttack(power);
-}
-
-void Mage::attack(Player& target) const{
+void Mage::attack(Player& target){
 	int	targetHealth = target.getHealth();
-	int reduceHealth = targetHealth - targetHealth * coef;
+	int reduceHealth = static_cast<int>(target.getHealth() * (1.0 - coef));
 	target.setHealth(reduceHealth);
 	target.handleAttack(power());
 }
 
 void Mage::Swap(Mage& other){
+	Player::Swap(other);
 	std::swap(magicSkill, other.magicSkill);
 	std::swap(coef, other.coef);
 }

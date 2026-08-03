@@ -10,7 +10,7 @@ public:
 	Necromancer& operator=(const Necromancer& other);
 	~Necromancer() override;
 
-	void attack(Player& target) const override;
+	void attack(Player& target) override;
 	int getCount() const;	
 	void print() const override;
 	Player* clone() const override;

@@ -35,11 +35,7 @@ void Warrior::handleAttack(int damage){
         int remainingDamage = damage - armor;
         armor = 0;
 
-        if (remainingDamage >= getHealth())
-            setHealth(0);
-        else {
-            setHealth(getHealth() - remainingDamage);
-        }
+        Player::handleAttack(remainingDamage);
     }
 }
 

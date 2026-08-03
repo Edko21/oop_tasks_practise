@@ -20,14 +20,16 @@ public:
 	const char* getName() const;
 	Position getPosition() const;
 	Weapon getWeapon() const;
-	bool isDead();
-	virtual void attack(Player& target) const;
+	bool isDead() const	;
+	virtual void attack(Player& target);
 
 	void setHealth(int newH);
+	void setName(const char* newName);
 	void setWeapon(Weapon newW);
 	void setDamage(int newD);	
 protected:
 	void reduceHealth(int amount);
+	void Swap(Player& other);
 private:
 	int health;
 	const char* name;

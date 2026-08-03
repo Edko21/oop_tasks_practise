@@ -14,12 +14,10 @@ public:
 	void setSkill(const char* newSkill);
 	void print() const override;
 	Player* clone() const override;
-	void handleAttack(int power) override;
-
-	void attack(Player& target) const override;
+	void attack(Player& target) override;
 private:
 	char* magicSkill;
-	int coef;
+	double coef;
 
 	void Swap(Mage& other);
 };
