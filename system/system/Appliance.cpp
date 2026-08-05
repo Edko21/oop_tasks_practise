@@ -1,6 +1,7 @@
 #include "Appliance.h"
 
-Appliance::Appliance(const char* marka, const char* model,const int id,bool isPlugged):marka(nullptr),model(nullptr),id(cnt++),isPlugged(isPlugged){
+Appliance::Appliance(const char* marka, const char* model,const int id,bool isPlugged,bool turnedOn)
+	:marka(nullptr),model(nullptr),id(cnt++),isPlugged(isPlugged),turnedOn(isPlugged&&turnedOn){
 	try {
 		setMarka(marka);
 		setModel(model);
@@ -71,6 +72,11 @@ const char* Appliance::getMarka() const{
 
 const char* Appliance::getModel() const{
 	return model;
+}
+
+bool Appliance::isOn() const
+{
+	return false;
 }
 
 void Appliance::setMarka(const char* newMarka){

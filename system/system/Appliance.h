@@ -4,18 +4,20 @@
 
 class Appliance {
 public:
-	Appliance(const char* marka, const char* model,const int id,bool isPlugged);
+	Appliance(const char* marka, const char* model,const int id,bool isPlugged,bool turnedOn);
 	Appliance(const Appliance& other);
 	Appliance& operator=(const Appliance& other);
 	virtual ~Appliance();
 	virtual Appliance* clone() const = 0;
 	virtual int consumedEnergy() const = 0;
 	
-	bool on();
-	bool off();
+	virtual bool on();
+	virtual bool off();
 
 	const char* getMarka() const;
 	const char* getModel() const;
+	bool getPlugged() const;
+	virtual bool isOn() const;
 	void setMarka(const char* newMarka);
 	void setModel(const char* newModel);
 protected:
@@ -26,4 +28,5 @@ private:
 	const int id;
 	int cnt;
 	bool isPlugged;
+	bool turnedOn;
 };
