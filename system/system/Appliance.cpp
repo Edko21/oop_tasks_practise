@@ -92,3 +92,4 @@ void Appliance::Swap(Appliance& other){
 	std::swap(model, other.model);
 }
 
+ 
